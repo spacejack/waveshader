@@ -1,0 +1,53 @@
+{
+  "name": "waveshader",
+  "version": "0.4.0",
+  "description": "WaveShader",
+  "main": "index.js",
+  "scripts": {
+    "compile:ts": "browserify --debug src/main.ts -p [ tsify --project src/tsconfig.json ] -o public/js/app.js",
+    "compile:pcss": "postcss src/components/index.pcss -o public/css/app.css",
+    "watch:pcss": "postcss src/components/index.pcss --watch -o public/css/app.css",
+    "build:pcss": "postcss src/components/index.pcss --env production -o public/css/app.css",
+    "build:ts": "browserify src/main.ts -p [ tsify --project src/tsconfig.json ] | uglifyjs -cm -o public/js/app.js",
+    "clean:ts": "rm -f public/js/app.js",
+    "clean:pcss": "rm -f public/css/app.css",
+    "compile": "run-s compile:*",
+    "build": "run-s build:*",
+    "clean": "run-s clean:*",
+    "serve": "budo src/main.ts:js/app.js -p 3000 --dir public --live=*.{html,css} -- --debug -p [ browserify-hmr ] -p [ tsify --project src/tsconfig.json ]",
+    "start": "run-p watch:* serve"
+  },
+  "keywords": [],
+  "author": "spacejack",
+  "license": "CREATIVE COMMONS ATTRIBUTION-NONCOMMERCIAL 4.0 INTERNATIONAL LICENSE",
+  "dependencies": {
+    "codemirror": "^5.44.0",
+    "gl-shader": "^4.2.1",
+    "gl-shader-output": "^2.0.1",
+    "hammerjs": "^2.0.8",
+    "lz-string": "^1.4.4",
+    "mithril": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "@types/codemirror": "0.0.72",
+    "@types/gl-shader": "^4.2.0",
+    "@types/hammerjs": "^2.0.36",
+    "@types/lz-string": "^1.3.33",
+    "@types/mithril": "github:MithrilJS/mithril.d.ts#v2-stream",
+    "autoprefixer": "^9.4.9",
+    "browserify": "^16.2.3",
+    "browserify-hmr": "^0.3.7",
+    "budo": "^11.6.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-clean": "^1.1.0",
+    "postcss-cli": "^6.1.2",
+    "postcss-custom-properties": "^8.0.9",
+    "postcss-import": "^12.0.1",
+    "postcss-nesting": "^7.0.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "tsify": "^4.0.1",
+    "tslint": "^5.13.1",
+    "typescript": "^3.3.3333",
+    "uglify-js": "^3.4.9"
+  }
+}

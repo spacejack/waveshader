@@ -1,0 +1,58 @@
+.help-panel {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 75%;
+	max-width: 40em;
+	height: 100%;
+	padding: 1em;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background-color: var(--clr-bg);
+	transition-property: transform,opacity;
+	transition-duration: 0.33s;
+	transform: translateX(100%);
+	opacity: 0;
+	z-index: 10; /* to appear above CodeMirror */
+
+	&.open {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	& h2:first-child {
+		margin-top: 0
+	}
+
+	& .code {
+		white-space: pre;
+		overflow: auto;
+		max-height: 30em;
+		tab-size: 2;
+	}
+
+	& .frequency-list {
+		& .frequency {
+			font-size: 0.875em;
+			font-family: monospace;
+			display: inline-block;
+			min-width: 8em;
+			padding-left: 0.5em;
+			margin: 0 0.5em 0.25em 0;
+			background-color: var(--clr-bgc);
+		}
+	}
+
+	& ul.credits {
+		margin: 0.5em 0;
+		& li {
+			/* margin-left: 1em; */
+			padding: 0.125em 0;
+			list-style-type: none;
+			&:before {
+				/* content: '▶ '; */
+				content: '🔗 ';
+			}
+		}
+	}
+}

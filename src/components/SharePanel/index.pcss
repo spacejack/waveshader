@@ -1,0 +1,31 @@
+.share-panel {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 68%;
+	max-width: 35em;
+	height: 14em;
+	padding: 0.25em;
+	/* overflow-y: auto; */
+	/* overflow-x: hidden; */
+	/* background-color: rgba(32, 32, 32, 0.9); */
+	background-color: var(--clr-bg);
+	transition: transform 0.125s;
+	transform: translateX(100%);
+	z-index: 11; /* to appear above CodeMirror and help panel */
+
+	&.open {
+		transform: translateX(0);
+	}
+
+	& > textarea {
+		width: 100%;
+		height: 100%;
+		font-family: monospace;
+		font-size: 0.85em;
+		word-break: break-all;
+		&:hover {
+			color: var(--clr-fgc);
+		}
+	}
+}
