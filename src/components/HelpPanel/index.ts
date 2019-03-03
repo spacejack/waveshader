@@ -91,7 +91,9 @@ export default function HelpPanel(): m.Component<Attrs> {
 			m('hr'),
 			m('p',
 				m('span', '© 2019 by '),
-				m('a', {href: 'https://github.com/spacejack', rel: 'noopener', target: '_blank'}, 'spacejack')
+				m('a', {href: 'https://github.com/spacejack', rel: 'noopener', target: '_blank'}, 'spacejack'),
+				m('span', ' | '),
+				m('a', {href: 'https://github.com/spacejack/waveshader', rel: 'noopener', target: '_blank'}, 'Github repo')
 			),
 			m('h4', 'Built with:'),
 			m('ul.credits',
